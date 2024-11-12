@@ -13,6 +13,7 @@ def main():
     if status != 0:
         sys.stdout.write(f"{command}: command not found\n")
         sys.stdout.write("$ ")
+        continue
 
 
 if __name__ == "__main__":
