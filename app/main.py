@@ -1,5 +1,5 @@
 import sys
-import os
+import subprocess
 
 
 def main():
@@ -9,11 +9,10 @@ def main():
 
     # Wait for user input
     command = input()
-    status = os.system(command)
+    status = subprocess.run(command, capture_output=True)
     if status != 0:
         sys.stdout.write(f"{command}: command not found\n")
         sys.stdout.write("$ ")
-        continue
 
 
 if __name__ == "__main__":
