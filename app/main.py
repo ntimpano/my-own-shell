@@ -9,7 +9,7 @@ def main():
         valid_command = []
         command = input()
         if command not in valid_command:
-            print(f"{command}: command not found\n")
+            print(f"{command}: command not found")
             continue
 
 
