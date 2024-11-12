@@ -7,6 +7,7 @@ def main():
         user_command = input()
         if user_command not in valid_commands:
             print(f"${user_command}: command not found")
+            sys.stdout.write("$ ")
             continue
 if __name__ == "__main__":
     main()
