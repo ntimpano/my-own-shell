@@ -8,7 +8,7 @@ def main():
         sys.stdout.flush()
 
         # Read and split the command
-        command = input().split()
+        command = input().split().strip()
 
         if not command:
             continue  # If no command, prompt again
