@@ -18,6 +18,7 @@ def main():
             sys.stdout.write(f"{command[0]}: command not found\n")
         
         # Asegurar que la salida se imprima antes de volver al prompt
+        sys.stdout.write("$ ")
         sys.stdout.flush()
 
 if __name__ == "__main__":
