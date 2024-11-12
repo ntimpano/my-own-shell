@@ -1,13 +1,18 @@
 import sys
+import os
+
+
 def main():
-    valid_commands = []
-    while True:
-        sys.stdout.write("$ ")
-        sys.stdout.flush()
-        user_command = input()
-        if user_command not in valid_commands:
-            print(f"${user_command}: command not found")
-            sys.stdout.write("$ ")
-            continue
+    # Uncomment this block to pass the first stage
+    sys.stdout.write("$ ")
+    sys.stdout.flush()
+
+    # Wait for user input
+    command = input()
+    status = os.system(command)
+    if status != 0:
+        sys.stdout.write(f"{command}: command not found\n")
+
+
 if __name__ == "__main__":
     main()
