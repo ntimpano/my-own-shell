@@ -13,6 +13,8 @@ def main():
         if status.returncode != 0:
             sys.stdout.write(f"{command}: command not found\n")
             sys.stdout.write("$ ")
+        else:
+            sys.stdout.write(status.stdout)
 
 
 if __name__ == "__main__":
