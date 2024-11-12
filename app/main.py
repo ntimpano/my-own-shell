@@ -16,7 +16,9 @@ def main():
         # Execute the command
         try:
             status = subprocess.run(command, capture_output=True, text=True)
-            if status.returncode != 0 or command == 'exit 0':
+            if command == 'exit 0':
+                sys.stdout.write(status.stdout)
+            if status.returncode != 0:
                 # Command failed
                 if status.stderr:
                     sys.stdout.write(status.stderr)
