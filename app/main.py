@@ -19,8 +19,8 @@ def main():
         
         # Si el comando falla (código de salida diferente de 0)
         if status.returncode != 0:
-            sys.stdout.write(f"{command[0]}: command not found")
-            print("$ ")
+            sys.stdout.write(f"{command[0]}: command not found\n$ ")
+            sys.stdout.write("$ ")
         else:
             # Mostrar la salida del comando si existe
             if status.stdout:
