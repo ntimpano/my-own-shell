@@ -10,26 +10,25 @@ def main():
         # Leer y dividir el comando
         command = input().strip().split()
 
-        # Si el comando está vacío, vuelve al inicio del bucle
         if not command:
-            continue
+            continue  # Si no hay comando, vuelve a solicitar uno
 
-        # Ejecutar el comando y verificar el código de salida
-        status = subprocess.run(command, capture_output=True, text=True)
+        # Ejecutar el comando
+        try:
+            status = subprocess.run(command, capture_output=True, text=True)
+            if status.returncode != 0:
+                # Comando fallido
+                sys.stdout.write(f"{command[0]}: command not found\n")
+            else:
+                # Mostrar la salida del comando si existe
+                if status.stdout:
+                    sys.stdout.write(status.stdout)
+                if status.stderr:
+                    sys.stdout.write(status.stderr)
+        except FileNotFoundError:
+            sys.stdout.write(f"{command[0]}: command not found\n")
         
-        # Si el comando falla (código de salida diferente de 0)
-        if status.returncode != 0:
-            sys.stdout.write(f"{command[0]}: command not found\n$ ")
-            sys.stdout.write("$ ")
-        else:
-            # Mostrar la salida del comando si existe
-            if status.stdout:
-                sys.stdout.write(status.stdout)
-            if status.stderr:
-                sys.stdout.write(status.stderr)
-
-        
-        # Asegurar que la salida se imprima antes de volver al prompt
+        # Forzar flush para asegurarse de que se muestre la salida antes de volver al prompt
         sys.stdout.flush()
 
 if __name__ == "__main__":
