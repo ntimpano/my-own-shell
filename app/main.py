@@ -3,16 +3,16 @@ import subprocess
 
 
 def main():
-    # Uncomment this block to pass the first stage
-    sys.stdout.write("$ ")
-    sys.stdout.flush()
+    while True:
 
-    # Wait for user input
-    command = input()
-    status = subprocess.run(command, capture_output=True)
-    if status.returncode != 0:
-        sys.stdout.write(f"{command}: command not found\n")
         sys.stdout.write("$ ")
+        sys.stdout.flush()
+
+        command = input()
+        status = subprocess.run(command, capture_output=True)
+        if status.returncode != 0:
+            sys.stdout.write(f"{command}: command not found\n")
+            sys.stdout.write("$ ")
 
 
 if __name__ == "__main__":
