@@ -25,7 +25,8 @@ def main():
                 print("".join(f'{command} is a shell builtin'))
             elif command:
                 print(f'{command} is {command_path}')
-
+            else:
+                print(f"{command}: command not found")
         else:
             print(f"{command}: command not found")
 if __name__ == "__main__":
