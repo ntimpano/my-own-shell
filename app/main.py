@@ -22,8 +22,8 @@ def main():
                 if os.path.isfile(f'{path}/{command}'):
                     command_path = f'{path}/{command}'
             if command in ['echo', 'exit', 'type']:
-                print("".join(f'{command} is a shell builtin'))
-            elif command:
+                print(f'{command} is a shell builtin')
+            elif command in path:
                 print(f'{command} is {command_path}')
             else:
                 print(f"{command}: command not found")
