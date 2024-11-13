@@ -23,7 +23,7 @@ def main():
                     command_path = f'{path}/{command}'
             if command in ['echo', 'exit', 'type']:
                 print(f'{command} is a shell builtin')
-            elif command in path:
+            elif command_path:
                 print(f'{command} is {command_path}')
             else:
                 print(f"{command}: command not found")
