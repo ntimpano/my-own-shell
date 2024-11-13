@@ -26,7 +26,7 @@ def main():
             elif command_path:
                 print(f'{command} is {command_path}')
             else:
-                print(f"{command}: command not found")
+                print(f"{command}: not found")
         else:
             print(f"{command}: command not found")
 if __name__ == "__main__":
