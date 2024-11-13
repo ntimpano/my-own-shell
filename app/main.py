@@ -12,7 +12,7 @@ def main():
             print(" ".join(command[1:]))
         elif command.startswith('type'):
             command = command.split()
-            if command[1] in ['echo', 'exit']:
+            if command[1] in ['echo', 'exit', 'type']:
                 print("".join(f'{command[1]} is a shell builtin'))
             else:
                 print(f'{command[1]}: not found')
