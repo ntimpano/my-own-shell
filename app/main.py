@@ -7,6 +7,10 @@ def main():
         command = input()
         if command == "exit 0":
             break
-        print(f"{command}: command not found")
+        if command.startswith('echo'):
+            command = command.split()
+            print(" ".join(command[1:]))
+        else:
+            print(f"{command}: command not found")
 if __name__ == "__main__":
     main()
