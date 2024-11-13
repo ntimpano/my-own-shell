@@ -1,10 +1,11 @@
 import sys
 import os
 
-PATH = os.environ.get("PATH")
+
 
 def main():
     while True:
+        PATH = os.environ.get("PATH")
         sys.stdout.write("$ ")
         sys.stdout.flush()
         command = input()
@@ -14,15 +15,16 @@ def main():
             command = command.split()
             print(" ".join(command[1:]))
         elif command.startswith('type'):
-            PATH = PATH.split(':')
-            command = command.split()
-            for bin in PATH:
-                if os.path.isfile(f'{bin}/{command[1]}'):
-                    cmd = f'{bin}/{command[1]}'
-            if command[1] in ['echo', 'exit', 'type']:
-                print("".join(f'{command[1]} is a shell builtin'))
-            elif command[1]:
-                print(f'{command[1]}is {cmd}')
+            paths = PATH.split(':')
+            command_path = None
+            command = command.split()[1]
+            for path in paths:
+                if os.path.isfile(f'{path}/{command}'):
+                    command_path = f'{path}/{command}'
+            if command in ['echo', 'exit', 'type']:
+                print("".join(f'{command} is a shell builtin'))
+            elif command:
+                print(f'{command} is {command_path}')
 
         else:
             print(f"{command}: command not found")
