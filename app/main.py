@@ -21,7 +21,7 @@ def main():
             for path in paths:
                 if os.path.isfile(f'{path}/{command}'):
                     command_path = f'{path}/{command}'
-            if command in ['echo', 'exit', 'type']:
+            if command in ['echo', 'exit', 'type', 'pwd']:
                 print(f'{command} is a shell builtin')
             elif command_path:
                 print(f'{command} is {command_path}')
