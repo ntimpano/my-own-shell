@@ -30,7 +30,10 @@ def main():
         elif command == 'pwd':
             print(os.getcwd())
         elif command.split()[0] == 'cd':
-            os.chdir(command.split()[1])
+            if os.path.isdir(command.split()[1]):
+                os.chdir(command.split()[1])        
+            else:
+                print(f'{command.split()[0]}: {command.split()[1]}: No such file or directory')
         elif command:
             paths = PATH.split(':')
             command_name = command.split()[0]
