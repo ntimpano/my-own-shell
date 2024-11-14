@@ -29,7 +29,7 @@ def main():
                 print(f"{command}: not found")
         elif command == 'pwd':
             print(os.getcwd())
-        elif command == 'cd':
+        elif command.split()[0] == 'cd':
             os.chdir(path)
         elif command:
             paths = PATH.split(':')
