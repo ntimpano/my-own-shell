@@ -30,7 +30,7 @@ def main():
         elif command == 'pwd':
             print(os.getcwd())
         elif command.split()[0] == 'cd':
-            os.chdir(path)
+            os.chdir(command_path)
         elif command:
             paths = PATH.split(':')
             command_name = command.split()[0]
