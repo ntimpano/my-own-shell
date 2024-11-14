@@ -35,6 +35,9 @@ def main():
                 os.chdir(command.split()[1])
             elif command.split()[1] == '../':
                 os.chdir(prev_dir)
+            elif command.split()[1] == '~':
+                home_dir = os.path.expanduser('~')
+                os.chdir(home_dir)
             else:
                 print(f'{command.split()[0]}: {command.split()[1]}: No such file or directory')
         elif command:
