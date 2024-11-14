@@ -21,7 +21,7 @@ def main():
             for path in paths:
                 if os.path.isfile(f'{path}/{command}'):
                     command_path = f'{path}/{command}'
-            if command in ['echo', 'exit', 'type', 'pwd']:
+            if command in ['echo', 'exit', 'type', 'pwd', 'cd']:
                 print(f'{command} is a shell builtin')
             elif command_path:
                 print(f'{command} is {command_path}')
@@ -29,6 +29,8 @@ def main():
                 print(f"{command}: not found")
         elif command == 'pwd':
             print(os.getcwd())
+        elif command == 'cd':
+            os.chdir(path)
         elif command:
             paths = PATH.split(':')
             command_name = command.split()[0]
