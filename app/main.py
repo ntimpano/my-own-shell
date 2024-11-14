@@ -27,6 +27,8 @@ def main():
                 print(f'{command} is {command_path}')
             else:
                 print(f"{command}: not found")
+        elif command == 'pwd':
+            print(os.getcwd())
         elif command:
             paths = PATH.split(':')
             command_name = command.split()[0]
