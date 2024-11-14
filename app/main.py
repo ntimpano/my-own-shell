@@ -25,16 +25,19 @@ def main():
                 print(f'{command} is a shell builtin')
             elif command_path:
                 print(f'{command} is {command_path}')
-
-
             else:
                 print(f"{command}: not found")
+        elif command:
+            paths = PATH.split(':')
+            command_name = command.split()[0]
+            command_found = any(os.path.isfile(f'{path}/{command_name}') for path in paths)
 
-        elif command[0]:
-            os.system(command)
-
+            if command_found:
+                os.system(command)
+            else:
+                print(f"{command_name}: command not found")
         else:
-            print(f"{command}: command not found")
+            print(f"{command.split()[0]}: command not found")
 
 if __name__ == "__main__":
     main()
