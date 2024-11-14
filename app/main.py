@@ -31,7 +31,10 @@ def main():
             print(os.getcwd())
         elif command.split()[0] == 'cd':
             if os.path.isdir(command.split()[1]):
-                os.chdir(command.split()[1])        
+                prev_dir = os.getcwd()
+                os.chdir(command.split()[1])
+            elif command.split()[1] == '../':
+                os.chdir(prev_dir)
             else:
                 print(f'{command.split()[0]}: {command.split()[1]}: No such file or directory')
         elif command:
