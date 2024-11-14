@@ -13,11 +13,11 @@ def main():
             break
         elif command.startswith('echo'):
             command = command.split()
-            print(" ".join(command[1:]))
+            print(f" ".join(command[1:]))
         elif command.startswith('type'):
             paths = PATH.split(':')
-            command_path = None
             command = command.split()[1]
+            command_path = None
             for path in paths:
                 if os.path.isfile(f'{path}/{command}'):
                     command_path = f'{path}/{command}'
@@ -25,9 +25,16 @@ def main():
                 print(f'{command} is a shell builtin')
             elif command_path:
                 print(f'{command} is {command_path}')
+
+
             else:
                 print(f"{command}: not found")
+
+        elif command[0]:
+            os.system(command)
+
         else:
             print(f"{command}: command not found")
+
 if __name__ == "__main__":
     main()
